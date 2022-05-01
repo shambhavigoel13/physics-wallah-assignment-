@@ -1,0 +1,68 @@
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+   </head>
+   <script>
+var totalclicks = 0;
+var r1 = 0,
+    r2 = 0;
+$(document).ready(function() {
+
+    $(".t1").click(function() {
+        if ($("#c1").prop('checked') == true) {
+            totalclicks = totalclicks + 1;
+            r1 = r1 + 1;
+            var percant = r1 * 100 / totalclicks;
+            $("#p1").css("width", percant);
+            console.log("r1 " + percant);
+            $("#p1").text(percant + "%");
+
+            var percent2 = r2 * 100 / totalclicks;
+            $("#p2").text(percent2 + "%");
+
+        }
+        if ($("#c2").prop('checked') == true) {
+            totalclicks = totalclicks + 1;
+            r2 = r2 + 1;
+            var percent = r2 * 100 / totalclicks;
+            $("#p2").css("width", percent);
+            console.log("r2 " + percent);
+            $("#p2").text(percent + "%");
+
+            var percent2 = r1 * 100 / totalclicks;
+            $("#p1").text(percent2 + "%");
+        }
+    });
+
+});   </script>
+   <body>
+      <div class= "container">
+      <div class="display-1 row " style="background-color:black ;color:white;"><b>Polling System</b> </div>
+      <div class="row">
+         <div class="col bg-secondary">
+            <h1 align="center">Q) What is your class time?</h1>
+            <br>
+            <input type="radio" id="c1" class="t1" name="name">
+            <h3 style="display: inline;">After 5pm</h3>
+            <br>
+            <div class="progress" >
+               <div class="progress-bar progress-bar-striped bg-info text-light"  id="p1" ></div>
+            </div>
+            <input type="radio" id="c2"  class="t1" name="name">
+            <h3 style="display: inline;">Before 5pm</h3>
+            <br>
+            <div class="progress">
+               <div class="progress-bar progress-bar-striped bg-info" id="p2"></div>
+            </div>
+            <br>
+         </div>
+      </div>
+      <div>
+      </div>
+   </body>
+</html>
